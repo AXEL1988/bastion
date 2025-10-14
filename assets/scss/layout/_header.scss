@@ -1,0 +1,227 @@
+// ========================================
+// HEADER
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0; // Mobile: top 0
+  left: 0;
+  width: 100%;
+  height: $header-height-mobile;
+  background-color: $bg-light;
+  box-shadow: $shadow-sm;
+  z-index: $z-index-sticky;
+  transition: all $transition-normal;
+  
+  @include respond-to(md) {
+    height: $header-height;
+    top: 80px; // Desktop: top 80px
+  }
+  
+  &__container {
+    @include container;
+    @include flex-between;
+    height: 100%;
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-family: $font-primary;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: $font-weight-bold;
+    letter-spacing: 1px;
+    color: $text-primary;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $color-primary-gray;
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+  
+}
+
+// Navigation
+.nav {
+  @include respond-to-max(md) {
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    width: 100%;
+    background-color: $bg-light;
+    padding: $spacing-xl $container-padding-mobile;
+    box-shadow: $shadow-lg;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-normal;
+    
+    &.nav--active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  &__list {
+    @include reset-list;
+    @include flex-column;
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+      flex-direction: row;
+      gap: $spacing-xl;
+    }
+  }
+  
+  &__item {
+    // Individual nav item styles
+  }
+  
+  &__link {
+    position: relative;
+    font-family: $font-secondary;
+    font-size: $font-size-body;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    padding: $spacing-sm 0;
+    transition: color $transition-fast;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-primary-dark;
+      transition: width $transition-normal;
+    }
+    
+    &:hover {
+      color: $color-primary-gray;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+    
+    &--active {
+      color: $color-primary-dark;
+      font-weight: $font-weight-semibold;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  // Mobile toggle button
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: $z-index-fixed;
+    
+    @include respond-to(md) {
+      display: none;
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+  
+  &__toggle-icon {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: $text-primary;
+    transition: all $transition-normal;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background-color: $text-primary;
+      transition: all $transition-normal;
+    }
+    
+    &::before {
+      top: -8px;
+    }
+    
+    &::after {
+      bottom: -8px;
+    }
+  }
+  
+  // Active state for hamburger
+  &__toggle[aria-expanded="true"] &__toggle-icon {
+    background-color: transparent;
+    
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Scrolled state
+.header--scrolled {
+  box-shadow: $shadow-md;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+// Active state (when scrolled or nav link clicked) - moves to top:0
+.header--active {
+  top: 0 !important;
+}
+
+// ========================================
+// PAGE BULLETS (Decorative - Top Left Corner)
+// ========================================
+.page-bullets {
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: $z-index-modal; // High z-index to appear above everything
+}
+
+.bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: $border-radius-full;
+  background-color: white;
+  transition: background-color $transition-fast;
+}
+

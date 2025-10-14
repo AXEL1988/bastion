@@ -1,0 +1,58 @@
+// ========================================
+// MAIN SCSS FILE
+// ========================================
+// This is the main entry point for all SCSS files
+// Files are imported in a specific order to ensure
+// proper cascade and avoid conflicts
+
+// ===== ABSTRACTS =====
+// Configuration and helpers
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// ===== BASE =====
+// Reset, typography, and base styles
+@use 'base/reset';
+@use 'base/typography';
+
+// ===== LAYOUT =====
+// Grid, containers, header, footer
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+
+// ===== COMPONENTS =====
+// Reusable UI components
+@use 'components/buttons';
+@use 'components/hero';
+@use 'components/about';
+@use 'components/service';
+@use 'components/team';
+@use 'components/contact';
+
+// ===== UTILITIES =====
+// Utility classes (optional)
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+// Spacing utilities
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.pt-0 { padding-top: 0; }
+.pb-0 { padding-bottom: 0; }
+
+// Text alignment
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+

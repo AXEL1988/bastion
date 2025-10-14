@@ -1,0 +1,92 @@
+// ========================================
+// SERVICE SECTION (Tu Demanda Express)
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.service {
+  background-color: $bg-dark;
+  color: $text-light;
+  
+  &__container {
+    @include container;
+  }
+  
+  &__content {
+    @include flex-column;
+    align-items: flex-start;
+    gap: $spacing-xl;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    @include respond-to(md) {
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    
+    @include respond-to(md) {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+  &__icon-svg {
+    width: 100%;
+    height: 100%;
+    color: $text-light;
+    opacity: 0.9;
+  }
+  
+  &__title {
+    font-family: $font-primary;
+    font-size: $font-size-h2;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $text-light;
+  }
+  
+  &__subtitle {
+    display: block;
+    font-size: $font-size-h4;
+    font-weight: $font-weight-semibold;
+    color: rgba($text-light, 0.8);
+    margin-top: $spacing-sm;
+  }
+  
+  &__description {
+    font-family: $font-secondary;
+    font-size: $font-size-body;
+    line-height: $line-height-relaxed;
+    color: rgba($text-light, 0.85);
+  }
+  
+  &__benefits {
+    font-family: $font-secondary;
+    font-size: $font-size-body;
+    line-height: $line-height-relaxed;
+    color: rgba($text-light, 0.8);
+    padding-left: $spacing-lg;
+    border-left: 3px solid rgba($text-light, 0.3);
+  }
+  
+  &__highlight {
+    font-family: $font-secondary;
+    font-size: $font-size-small;
+    line-height: $line-height-relaxed;
+    color: rgba($text-light, 0.7);
+    font-style: italic;
+  }
+  
+  &__cta {
+    margin-top: $spacing-lg;
+  }
+}
+

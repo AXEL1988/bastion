@@ -1,0 +1,92 @@
+// ========================================
+// HERO SECTION
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: $bg-dark;
+  background-image: url('../../assets/images/Banner Principal.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $text-light;
+  display: flex;
+  align-items: center;
+  padding-top: $header-height-mobile;
+  padding-bottom: $spacing-4xl;
+  
+  @include respond-to(md) {
+    padding-top: $header-height;
+  }
+  
+  // Dark overlay - lighter to show the image better
+  &::before {
+    content: '';
+    @include absolute-full;
+    background: linear-gradient(90deg, rgba($color-black, 0.85) 0%, rgba($color-black, 0.4) 60%, rgba($color-black, 0.3) 100%);
+    z-index: 1;
+  }
+  
+  &__container {
+    position: relative;
+    z-index: 2;
+    @include container;
+    @include flex-column;
+    align-items: flex-start;
+    gap: $spacing-2xl;
+    max-width: 700px;
+    margin-left: 70px;
+    @include respond-to(xs) {
+        @include respond-to-max(sm) {
+        margin-top: $spacing-md;
+        margin-left: 0;
+        }
+      }
+  }
+  
+  &__title {
+    font-family: $font-primary;
+    font-size: clamp(2.5rem, 6vw, 7rem);
+    font-weight: $font-weight-extra-bold;
+    line-height: 0.8;
+    color: $text-light;
+    letter-spacing: -1px;
+    max-width: 800px;
+    
+    @include fade-in;
+  }
+  
+  &__title-highlight {
+    display: block;
+    color: rgba($text-light, 0.9);
+    font-size: 3rem;
+    @include respond-to(md) {
+      margin-top: $spacing-md;
+    }
+
+    @include respond-to(xs) {
+      @include respond-to-max(sm) {
+        font-size: 2rem;
+      }
+    }
+  }
+  
+  &__description {
+    font-family: $font-secondary;
+    font-size: $font-size-body;
+    line-height: 1;
+    color: rgba($text-light, 0.85);
+    max-width: 600px;
+    
+    animation: slideUp 0.6s ease-out 0.2s backwards;
+  }
+  
+  &__cta {
+    animation: slideUp 0.8s ease-out 0.4s backwards;
+  }
+}
+

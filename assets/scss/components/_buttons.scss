@@ -1,0 +1,109 @@
+// ========================================
+// BUTTONS
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  @include button-base;
+  
+  // Primary button
+  &--primary {
+    background-color: $color-primary-dark;
+    color: $text-light;
+    border: 2px solid $color-primary-dark;
+    
+    &:hover:not(:disabled) {
+      background-color: transparent;
+      color: $color-primary-dark;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+  
+  // Secondary button
+  &--secondary {
+    background-color: transparent;
+    color: $text-light;
+    border: 2px solid $text-light;
+    
+    &:hover:not(:disabled) {
+      background-color: $text-light;
+      color: $color-primary-dark;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    
+    &:focus-visible {
+      outline-color: $text-light;
+    }
+  }
+  
+  // Outline button
+  &--outline {
+    background-color: transparent;
+    color: $text-light;
+    border: 2px solid $text-light;
+    
+    &:hover:not(:disabled) {
+      background-color: $text-light;
+      color: $color-primary-dark;
+    }
+    
+    &:focus-visible {
+      outline-color: $text-light;
+    }
+  }
+  
+  // Accent button
+  &--accent {
+    background-color: $color-accent;
+    color: $color-primary-dark;
+    border: 2px solid $color-accent;
+    
+    &:hover:not(:disabled) {
+      background-color: #b89530;
+      border-color: #b89530;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+  
+  // Button sizes
+  &--small {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-small;
+  }
+  
+  &--large {
+    padding: $spacing-lg $spacing-2xl;
+    font-size: $font-size-h4;
+  }
+  
+  // Full width button
+  &--full {
+    width: 100%;
+  }
+}
+

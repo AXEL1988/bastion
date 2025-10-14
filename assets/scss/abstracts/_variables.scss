@@ -1,0 +1,146 @@
+// ========================================
+// VARIABLES
+// ========================================
+
+// ===== COLORS =====
+// Primary Colors
+$color-primary-dark: #2B2B2B;
+$color-primary-gray: #888888;
+
+// Neutral Colors
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-light-gray: #F5F5F5;
+$color-medium-gray: #CCCCCC;
+$color-border-gray: #E5E5E5;
+
+// Accent Colors
+$color-accent: #D4AF37; // Gold for CTAs and highlights
+
+// Text Colors
+$text-primary: $color-primary-dark;
+$text-light: $color-white;
+$text-secondary: $color-primary-gray;
+$text-muted: #666666;
+
+// Background Colors
+$bg-dark: $color-primary-dark;
+$bg-light: $color-white;
+$bg-gray: $color-light-gray;
+$bg-footer: $color-black;
+$bg-section-alt: #9B9B9B; // Gris medio para sección About
+
+// ===== TYPOGRAPHY =====
+// Font Families
+$font-primary: 'Playfair Display', serif;   // Headings
+$font-secondary: 'Inter', sans-serif;       // Body text
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+// Font Sizes (Responsive with clamp)
+$font-size-base: 16px;
+
+// Headings
+$font-size-h1: clamp(2.5rem, 5vw, 4rem);      // 40-64px
+$font-size-h2: clamp(2rem, 4vw, 3rem);        // 32-48px
+$font-size-h3: clamp(1.5rem, 3vw, 2rem);      // 24-32px
+$font-size-h4: clamp(1.25rem, 2.5vw, 1.5rem); // 20-24px
+
+// Body
+$font-size-body: clamp(1rem, 2vw, 2rem);        // 16-18px
+$font-size-small: clamp(0.875rem, 1.5vw, 1rem);     // 14-16px
+$font-size-tiny: 0.75rem;                            // 12px
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.8;
+
+// ===== SPACING =====
+// Base spacing unit
+$spacing-unit: 1rem; // 16px
+
+// Spacing scale
+$spacing-xs: calc($spacing-unit * 0.25);   // 4px
+$spacing-sm: calc($spacing-unit * 0.5);    // 8px
+$spacing-md: $spacing-unit;                 // 16px
+$spacing-lg: calc($spacing-unit * 1.5);    // 24px
+$spacing-xl: calc($spacing-unit * 2);      // 32px
+$spacing-2xl: calc($spacing-unit * 3);     // 48px
+$spacing-3xl: calc($spacing-unit * 4);     // 64px
+$spacing-4xl: calc($spacing-unit * 5);     // 80px
+$spacing-5xl: calc($spacing-unit * 6);     // 96px
+
+// Section padding
+$section-padding-mobile: $spacing-3xl;
+$section-padding-tablet: $spacing-4xl;
+$section-padding-desktop: $spacing-5xl;
+
+// ===== LAYOUT =====
+// Container max widths
+$container-max-width: 1200px;
+$container-wide: 1400px;
+$container-narrow: 900px;
+
+// Container padding
+$container-padding: $spacing-lg;
+$container-padding-mobile: $spacing-md;
+
+// Grid
+$grid-gap: $spacing-xl;
+$grid-gap-mobile: $spacing-lg;
+
+// ===== BREAKPOINTS =====
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1536px;
+
+// ===== TRANSITIONS =====
+$transition-fast: 0.2s ease-in-out;
+$transition-normal: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// Easing functions
+$ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+// ===== BORDERS =====
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
+
+$border-width: 1px;
+$border-width-thick: 2px;
+
+// ===== SHADOWS =====
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// ===== Z-INDEX =====
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// ===== HEADER =====
+$header-height: 120px;
+$header-height-mobile: 64px;
+

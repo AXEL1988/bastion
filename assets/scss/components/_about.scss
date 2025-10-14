@@ -1,0 +1,152 @@
+// ========================================
+// ABOUT SECTION (Misión y Visión)
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.about {
+  background-color: $bg-section-alt; // Fondo gris oscuro
+  padding: $spacing-4xl 0;
+  
+  &__container {
+    @include container;
+    max-width: 1200px;
+  }
+  
+  // Título principal "Conoce más de Bastione"
+  &__main-title {
+    font-family: $font-secondary; // Inter para "Conoce más de"
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: $font-weight-bold;
+    color: $text-light; // Blanco
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: $spacing-4xl;
+    
+    @include respond-to(md) {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+  }
+  
+  &__brand {
+    display: block;
+    font-family: $font-primary; // Playfair Display para "Bastione"
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: $font-weight-bold;
+    color: $color-primary-dark; // Gris oscuro
+    margin-top: $spacing-sm;
+    font-style: normal;
+    
+    @include respond-to(md) {
+      font-size: clamp(3rem, 6vw, 5rem);
+    }
+  }
+  
+  // Contenedor de Misión y Visión
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+    align-items: start;
+    
+    @include respond-to(md) {
+      grid-template-columns: 1fr auto 1fr;
+      gap: $spacing-4xl;
+    }
+  }
+  
+  // Cada item (Misión o Visión)
+  &__item {
+    text-align: center;
+    
+    @include respond-to(md) {
+      text-align: left;
+    }
+  }
+  
+  // Título "Misión" o "Visión"
+  &__title {
+    font-family: $font-secondary;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: $font-weight-bold;
+    color: $text-light; // Blanco
+    margin-bottom: $spacing-lg;
+    
+    @include respond-to(md) {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+  }
+  
+  // Texto descriptivo
+  &__text {
+    font-family: $font-secondary;
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
+    line-height: $line-height-relaxed;
+    color: rgba($text-light, 0.9); // Blanco con ligera transparencia
+    max-width: 500px;
+    margin: 0 auto;
+    
+    @include respond-to(md) {
+      margin: 0;
+      font-size: clamp(1rem, 2vw, 1.125rem);
+    }
+  }
+  
+  // Divisor vertical entre Misión y Visión
+  &__divider {
+    display: none;
+    
+    @include respond-to(md) {
+      display: block;
+      width: 2px;
+      height: 100%;
+      min-height: 200px;
+      background-color: rgba($text-light, 0.3); // Línea blanca semi-transparente
+    }
+  }
+}
+
+// ========================================
+// SECTION TITLE (Reusable)
+// ========================================
+.section__title {
+  font-family: $font-primary;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+  text-align: center;
+  margin-bottom: $spacing-lg;
+  
+  @include respond-to(md) {
+    text-align: left;
+  }
+  
+  &--light {
+    color: $text-light;
+  }
+  
+  &--center {
+    text-align: center;
+  }
+}
+
+.section__title-brand {
+  display: block;
+  font-style: italic;
+  color: $color-primary-gray;
+  
+  @include respond-to(md) {
+    margin-top: $spacing-sm;
+  }
+}
+
+.section__title-highlight {
+  display: block;
+  color: rgba($text-light, 0.85);
+  
+  @include respond-to(md) {
+    margin-top: $spacing-sm;
+  }
+}

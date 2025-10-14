@@ -1,0 +1,27 @@
+{
+  "name": "bastione-legal-corp",
+  "version": "1.0.0",
+  "description": "Sitio web informativo para Bastione Legal Corp - Especialistas en derecho de familia",
+  "main": "index.html",
+  "scripts": {
+    "dev": "sass --watch assets/scss/main.scss:dist/css/main.css --style expanded",
+    "build": "sass assets/scss/main.scss:dist/css/main.css --style compressed --no-source-map",
+    "serve": "npx serve .",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "legal",
+    "abogados",
+    "derecho-familia",
+    "website",
+    "scss",
+    "vanilla-js"
+  ],
+  "author": "Bastione Legal Corp",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.70.0"
+  }
+}
+
