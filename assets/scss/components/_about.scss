@@ -7,17 +7,24 @@
 
 .about {
   background-color: $bg-section-alt; // Fondo gris oscuro
+  min-height: 100vh; // Ocupa toda la altura del viewport
+  display: flex;
+  align-items: center; // Centra verticalmente el contenido
   padding: $spacing-4xl 0;
   
   &__container {
     @include container;
-    max-width: 1200px;
+    max-width: 1400px; // Aumentado para dar más espacio horizontal
+    width: 100%;
+    
+    @include respond-to(xl) {
+      max-width: 1600px; // Aún más ancho en pantallas extra grandes
+    }
   }
   
   // Título principal "Conoce más de Bastione"
   &__main-title {
-    font-family: $font-secondary; // Inter para "Conoce más de"
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-size: clamp(1.75rem, 4vw, 4.5rem);
     font-weight: $font-weight-bold;
     color: $text-light; // Blanco
     text-align: center;
@@ -25,19 +32,17 @@
     margin-bottom: $spacing-4xl;
     
     @include respond-to(md) {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 4.5rem);
     }
   }
   
   &__brand {
     display: block;
-    font-family: $font-primary; // Playfair Display para "Bastione"
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: $font-weight-bold;
     color: $color-primary-dark; // Gris oscuro
     margin-top: $spacing-sm;
-    font-style: normal;
-    
+    margin-left: 300px;
     @include respond-to(md) {
       font-size: clamp(3rem, 6vw, 5rem);
     }
@@ -52,44 +57,58 @@
     
     @include respond-to(md) {
       grid-template-columns: 1fr auto 1fr;
-      gap: $spacing-4xl;
+      gap: $spacing-3xl;
+      max-width: 100%;
+    }
+    
+    @include respond-to(lg) {
+      gap: clamp(3rem, 5vw, 6rem); // Gap dinámico para pantallas grandes
     }
   }
   
   // Cada item (Misión o Visión)
   &__item {
-    text-align: center;
-    
-    @include respond-to(md) {
-      text-align: left;
-    }
+    text-align: center; // Siempre centrado
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   // Título "Misión" o "Visión"
   &__title {
     font-family: $font-secondary;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
     font-weight: $font-weight-bold;
     color: $text-light; // Blanco
     margin-bottom: $spacing-lg;
+    text-align: center;
     
     @include respond-to(md) {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3.5rem);
     }
   }
   
   // Texto descriptivo
   &__text {
     font-family: $font-secondary;
-    font-size: clamp(0.95rem, 2vw, 1.125rem);
-    line-height: $line-height-relaxed;
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+    line-height: 1.6;
     color: rgba($text-light, 0.9); // Blanco con ligera transparencia
-    max-width: 500px;
+    max-width: 100%; // Permitir que use todo el ancho disponible
     margin: 0 auto;
+    text-align: center; // Centrado
     
     @include respond-to(md) {
-      margin: 0;
-      font-size: clamp(1rem, 2vw, 1.125rem);
+      max-width: 450px; // Ancho para desktop
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+    }
+    
+    @include respond-to(lg) {
+      max-width: 520px; // Ancho óptimo para ~4 líneas
+    }
+    
+    @include respond-to(xl) {
+      max-width: 580px; // Ancho máximo en pantallas grandes
     }
   }
   
