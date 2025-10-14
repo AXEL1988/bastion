@@ -68,6 +68,31 @@
     }
   }
   
+  // Outline light button (for dark backgrounds)
+  &--outline-light {
+    background-color: transparent;
+    color: $text-light;
+    border: 3px solid $text-light;
+    border-radius: 50px; // Bordes redondeados como en la imagen
+    padding: $spacing-md $spacing-3xl;
+    font-weight: $font-weight-bold;
+    
+    &:hover:not(:disabled) {
+      background-color: $text-light;
+      color: $color-primary-dark;
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    
+    &:focus-visible {
+      outline-color: $text-light;
+    }
+  }
+  
   // Accent button
   &--accent {
     background-color: $color-accent;
