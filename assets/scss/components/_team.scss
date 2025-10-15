@@ -81,12 +81,18 @@
     flex: 0 1 auto; // No crecer, permitir encoger, tamaño base auto
     
     &-image {
-      width: 160px; // Reducido aún más
-      height: 160px; // Reducido aún más
+      width: 200px; // Reducido aún más
+      height: 200px; // Reducido aún más
       border-radius: 50%;
       overflow: hidden;
       margin-bottom: $spacing-xs; // Reducido aún más
       border: 1px solid $color-medium-gray;
+      
+      // Mobile: imágenes más pequeñas
+      @media (max-width: 767px) {
+        width: 150px;
+        height: 150px;
+      }
     }
     
     &-photo {
@@ -108,6 +114,20 @@
       font-size: 0.9rem; // Reducido ligeramente
       color: $color-primary-gray;
       opacity: 0.9; // Sutilmente más claro
+    }
+  }
+  
+  // Mobile responsive: cambiar a columna
+  @media (max-width: 767px) {
+    &__grid {
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-xl;
+    }
+    
+    &__member {
+      width: 100%;
+      max-width: 250px;
     }
   }
 }
