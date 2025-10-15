@@ -27,8 +27,13 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding-left: 1rem; // Sin padding, pegado al borde izquierdo
-    margin-left: 1rem; // Sin margen izquierdo
+    padding-left: 1rem; // Logo a 1rem del borde izquierdo
+    padding-right: 1rem; // Icono a 1rem del borde derecho
+    
+    @media (max-width: 767px) {
+      padding-left: 1rem;
+      padding-right: 0.5rem; // Menos padding en mobile para el icono
+    }
   }
   
   &__logo {
@@ -42,6 +47,9 @@
     color: $text-primary;
     transition: color $transition-fast;
     line-height: 1.1;
+    text-rendering: optimizeLegibility; // Mejorar claridad del texto
+    -webkit-font-smoothing: antialiased; // Suavizado de fuentes en WebKit
+    -moz-osx-font-smoothing: grayscale; // Suavizado en Firefox/Mac
     
     &:hover {
       color: $color-primary-gray;
@@ -186,6 +194,7 @@
     background: transparent;
     border: none;
     z-index: $z-index-fixed;
+    margin-right: 1rem; // Ajustar posición del icono en mobile
     
     @include respond-to(md) {
       display: none;
@@ -261,6 +270,11 @@
   display: flex;
   gap: 0.5rem;
   z-index: $z-index-modal; // High z-index to appear above everything
+  
+  // Ocultar bullets en mobile para no tapar el logo
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .bullet {
