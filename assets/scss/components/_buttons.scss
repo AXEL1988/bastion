@@ -77,6 +77,16 @@
     padding: $spacing-md $spacing-3xl;
     font-weight: $font-weight-bold;
     bottom: 50px;
+    white-space: nowrap; // Evitar que el texto se divida en dos líneas
+    
+    // Mobile: ocupar todo el ancho
+    @media (max-width: 767px) {
+      width: 100%;
+      max-width: 100%;
+      padding: $spacing-md $spacing-lg;
+      font-size: 0.9rem;
+    }
+    
     &:hover:not(:disabled) {
       background-color: $text-light;
       color: $color-primary-dark;
