@@ -77,11 +77,12 @@
 .nav {
   @include respond-to-max(md) {
     position: fixed;
-    top: $header-height;
+    top: 0; // Pegado al header
     left: 0;
     width: 100%;
     background-color: $bg-light;
     padding: $spacing-xl $container-padding-mobile;
+    padding-top: calc(#{$header-height} + #{$spacing-xl}); // Espacio para el header
     box-shadow: $shadow-lg;
     transform: translateY(-100%);
     opacity: 0;
