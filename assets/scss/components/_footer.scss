@@ -275,12 +275,35 @@
     &__container {
       flex-direction: column;
       gap: $spacing-2xl;
+      align-items: center; // Centrar todo en mobile
+      text-align: center; // Centrar texto en mobile
     }
     
     &__divider {
       width: 100%;
       height: 1px;
       min-height: 1px;
+    }
+    
+    // Centrar todas las secciones en mobile
+    &__section {
+      align-items: center;
+      text-align: center;
+    }
+    
+    // Centrar navegación en mobile
+    &__nav-list {
+      align-items: center;
+    }
+    
+    // Centrar redes sociales en mobile
+    &__social {
+      justify-content: center;
+    }
+    
+    // Centrar dirección en mobile
+    &__address-content {
+      text-align: center;
     }
     
     &__map-placeholder {
