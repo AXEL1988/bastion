@@ -1,90 +1,104 @@
-// ========================================
-// CONTACT SECTION
-// ========================================
-
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+// ===== CONTACT SECTION =====
 .contact {
-  background-color: $bg-dark;
+  background-color: #888888; // Color actualizado según el PDF
+  padding: calc($spacing-unit * 4) 0;
   color: $text-light;
-  
+  padding-top: 5rem;
   &__container {
     @include container;
+    margin-top: 5rem;
   }
   
-  &__content {
-    @include flex-column;
-    gap: $spacing-3xl;
-    max-width: 700px;
-    margin: $spacing-3xl auto 0;
+  // Pre-título "Contáctanos"
+  &__pretitle {
+    display: block;
+    font-size: clamp(1.75rem, 1.5vw, 1.75rem);
+    color: $text-light;
+    margin-bottom: $spacing-xs; // Reducido de md a xs
+    opacity: 0.9;
+  }
+  
+  // Título principal
+  &__title {
+    margin-bottom: $spacing-3xl;
+    line-height: 0.9; // Reducir espacio entre líneas
     
-    @include respond-to(md) {
-      gap: $spacing-4xl;
+    &-main {
+      display: block;
+      font-family: $font-primary;
+      font-size: clamp(2.5rem, 6vw, 5rem); // Igual que about__brand
+      font-weight: $font-weight-bold;
+      color: $text-light;
+      line-height: 0.9; // Reducido de 1.1 a 0.9
+      margin-bottom: 0; // Eliminado el margen
+      
+      @include respond-to(md) {
+        font-size: clamp(3rem, 6vw, 5rem); // Igual que about__brand en desktop
+      }
+    }
+    
+    &-sub {
+      display: block;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      color: $text-light;
+      opacity: 0.85;
+      margin-top: 0.1em; // Acercar al título principal
     }
   }
   
+  // Contenido principal
+  &__content {
+    margin-top: $spacing-2xl;
+    max-width: 600px; // Limitar el ancho del contenido
+  }
+  
+  // Información de contacto
+  &__info {
+    width: 100%;
+  }
+  
+  // Subtítulo "Agenda tu asesoría"
   &__subtitle {
     font-family: $font-secondary;
-    font-size: $font-size-h4;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: $font-weight-medium;
-    color: rgba($text-light, 0.9);
-    margin-bottom: $spacing-xl;
+    color: $text-light;
+    margin-bottom: $spacing-2xl;
   }
   
-  &__info {
-    @include flex-column;
-    gap: $spacing-xl;
-  }
-  
+  // Items de contacto (correo y teléfono)
   &__item {
-    @include flex-column;
-    gap: $spacing-sm;
+    margin-bottom: $spacing-sm; // Reducido de lg a sm
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   
   &__item-label {
     font-family: $font-secondary;
-    font-size: $font-size-body;
-    font-weight: $font-weight-semibold;
-    color: rgba($text-light, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: $font-size-small;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: $font-weight-bold;
+    color: $text-light;
+    white-space: nowrap;
   }
   
   &__item-link {
     font-family: $font-secondary;
-    font-size: $font-size-h4;
-    font-weight: $font-weight-medium;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
     color: $text-light;
-    transition: all $transition-fast;
-    display: inline-block;
+    opacity: 0.9;
+    text-decoration: none;
+    transition: opacity $transition-fast;
     
     &:hover {
-      color: rgba($text-light, 0.8);
-      transform: translateX(4px);
-    }
-    
-    &:focus-visible {
-      outline-color: $text-light;
-    }
-  }
-  
-  &__actions {
-    @include flex-column;
-    gap: $spacing-lg;
-    
-    @include respond-to(sm) {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-  }
-  
-  &__btn {
-    @include respond-to(sm) {
-      flex: 1;
-      min-width: 200px;
+      opacity: 1;
     }
   }
 }
-
