@@ -1,99 +1,113 @@
-// ========================================
-// TEAM SECTION
-// ========================================
-
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+// ===== TEAM SECTION =====
 .team {
+  padding: calc($spacing-unit * 4) 0; // Reducido de 5 a 4
   background-color: $bg-light;
   
   &__container {
     @include container;
   }
   
-  &__intro {
-    font-family: $font-secondary;
-    font-size: $font-size-body;
-    line-height: $line-height-relaxed;
-    color: $text-secondary;
+  // Título "Nuestro Equipo"
+  &__title {
     text-align: center;
-    max-width: 800px;
-    margin: $spacing-xl auto $spacing-3xl;
-  }
-  
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $spacing-3xl;
+    margin-bottom: $spacing-2xl; // Reducido de 3xl a 2xl
+    font-size: clamp(2.5rem, 6vw, 5rem); // Mismo tamaño que about__brand
+    line-height: 1.1;
     
-    @include respond-to(sm) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: $spacing-4xl;
+    @include respond-to(md) {
+      font-size: clamp(3rem, 6vw, 5rem); // Mismo tamaño que about__brand en desktop
     }
     
-    @include respond-to(lg) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: $spacing-5xl;
-      max-width: 900px;
-      margin: 0 auto;
+    &-first {
+      display: inline;
+      font-family: $font-primary;
+      color: $color-primary-gray;
+    }
+    
+    &-second {
+      display: inline;
+      font-family: $font-primary;
+      color: $text-primary;
     }
   }
   
-  &__member {
-    @include flex-column;
+  // Contenedor principal
+  &__content {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: $spacing-lg; // Reducido de 2xl a lg
+  }
+  
+  // Párrafos descriptivos
+  &__description {
+    font-family: $font-secondary;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: $text-primary;
     text-align: center;
-    transition: transform $transition-normal;
+    line-height: 1.3; // Aún más compacto
+    margin-bottom: $spacing-xs; // Espacio mínimo entre párrafos
     
-    &:hover {
-      transform: translateY(-8px);
-      
-      .team__member-image {
-        box-shadow: $shadow-xl;
+    &:last-of-type {
+      margin-bottom: $spacing-md; // Reducido significativamente el espacio antes del grid
+    }
+    
+    br {
+      @include respond-to(md) {
+        display: inline;
       }
     }
   }
   
-  &__member-image-wrapper {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin-bottom: $spacing-lg;
+  // Grid de miembros del equipo
+  &__grid {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-3xl; // Espacio horizontal específico entre miembros
+    width: 100%;
+    margin-top: $spacing-md;
+    padding: 0 $spacing-lg; // Padding para evitar que toque los bordes en móvil
+  }
+  
+  // Tarjeta de miembro del equipo
+  &__member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 0 1 auto; // No crecer, permitir encoger, tamaño base auto
     
-    @include respond-to(md) {
-      width: 250px;
-      height: 250px;
+    &-image {
+      width: 160px; // Reducido aún más
+      height: 160px; // Reducido aún más
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: $spacing-xs; // Reducido aún más
+      border: 1px solid $color-medium-gray;
+    }
+    
+    &-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    &-name {
+      font-family: $font-secondary;
+      font-size: 1rem; // Reducido ligeramente
+      font-weight: $font-weight-bold;
+      color: $text-primary;
+      margin-bottom: 2px; // Espacio mínimo
+    }
+    
+    &-role {
+      font-family: $font-secondary;
+      font-size: 0.9rem; // Reducido ligeramente
+      color: $color-primary-gray;
+      opacity: 0.9; // Sutilmente más claro
     }
   }
-  
-  &__member-image {
-    width: 100%;
-    height: 100%;
-    border-radius: $border-radius-full;
-    object-fit: cover;
-    object-position: center;
-    border: 4px solid $color-light-gray;
-    box-shadow: $shadow-lg;
-    transition: all $transition-normal;
-    
-    // Placeholder background for when images are loading
-    background-color: $color-light-gray;
-  }
-  
-  &__member-name {
-    font-family: $font-primary;
-    font-size: $font-size-h3;
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
-    margin-bottom: $spacing-sm;
-  }
-  
-  &__member-role {
-    font-family: $font-secondary;
-    font-size: $font-size-body;
-    font-weight: $font-weight-regular;
-    color: $text-secondary;
-  }
 }
-
