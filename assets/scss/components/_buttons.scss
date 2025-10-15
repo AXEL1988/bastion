@@ -76,7 +76,7 @@
     border-radius: 50px; // Bordes redondeados como en la imagen
     padding: $spacing-md $spacing-3xl;
     font-weight: $font-weight-bold;
-    
+    bottom: 50px;
     &:hover:not(:disabled) {
       background-color: $text-light;
       color: $color-primary-dark;
