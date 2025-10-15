@@ -1,0 +1,90 @@
+// ========================================
+// GRID SYSTEM
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Container
+.container {
+  @include container;
+}
+
+.container--wide {
+  max-width: $container-wide;
+}
+
+.container--narrow {
+  max-width: $container-narrow;
+}
+
+// Section
+.section {
+  @include section-padding;
+}
+
+// Grid utilities
+.grid {
+  display: grid;
+  gap: $grid-gap-mobile;
+  
+  @include respond-to(md) {
+    gap: $grid-gap;
+  }
+}
+
+.grid--2-cols {
+  grid-template-columns: 1fr;
+  
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid--3-cols {
+  grid-template-columns: 1fr;
+  
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid--4-cols {
+  grid-template-columns: 1fr;
+  
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Auto-fit grid
+.grid--auto-fit {
+  @include grid-auto-fit;
+}
+
+// Flex utilities
+.flex {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.flex--center {
+  @include flex-center;
+}
+
+.flex--between {
+  @include flex-between;
+}
+
+.flex--column {
+  @include flex-column;
+}
+

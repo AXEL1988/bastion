@@ -1,0 +1,288 @@
+// ========================================
+// HEADER
+// ========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0; // Mobile: top 0
+  left: 0;
+  width: 100%;
+  height: $header-height-mobile;
+  background-color: $bg-light;
+  box-shadow: $shadow-sm;
+  z-index: $z-index-sticky;
+  transition: all $transition-normal;
+  
+  @include respond-to(md) {
+    height: $header-height;
+    top: 80px; // Desktop: top 80px
+  }
+  
+  &__container {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding-left: 1rem; // Logo a 1rem del borde izquierdo
+    padding-right: 1rem; // Icono a 1rem del borde derecho
+    
+    @media (max-width: 767px) {
+      padding-left: 1rem;
+      padding-right: 0.5rem; // Menos padding en mobile para el icono
+    }
+  }
+  
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centrar los textos
+    font-family: $font-primary;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: $font-weight-bold;
+    letter-spacing: 1px;
+    color: $text-primary;
+    transition: color $transition-fast;
+    line-height: 1.1;
+    text-rendering: optimizeLegibility; // Mejorar claridad del texto
+    -webkit-font-smoothing: antialiased; // Suavizado de fuentes en WebKit
+    -moz-osx-font-smoothing: grayscale; // Suavizado en Firefox/Mac
+    
+    &:hover {
+      color: $color-primary-gray;
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+  
+  &__logo-subtitle {
+    font-family: $font-secondary;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    font-weight: 400; // Peso normal
+    color: $text-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    text-align: center; // Centrar el texto
+  }
+  
+}
+
+// Navigation
+.nav {
+  @include respond-to-max(md) {
+    position: fixed;
+    top: 0; // Pegado al header
+    left: 0;
+    width: 100%;
+    background-color: $bg-light;
+    padding: $spacing-xl $container-padding-mobile;
+    padding-top: calc(#{$header-height} + #{$spacing-xl}); // Espacio para el header
+    box-shadow: $shadow-lg;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-normal;
+    
+    &.nav--active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  &__list {
+    @include reset-list;
+    @include flex-column;
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+      flex-direction: row;
+      gap: $spacing-lg;
+      align-items: center;
+    }
+  }
+  
+  &__item {
+    // Individual nav item styles
+  }
+  
+  // Separadores verticales
+  &__separator {
+    width: 1px;
+    height: 40px;
+    background-color: #666666;
+    flex-shrink: 0;
+    display: none;
+    
+    @include respond-to(md) {
+      display: block;
+    }
+  }
+  
+  &__link {
+    position: relative;
+    font-family: $font-secondary;
+    font-size: $font-size-body;
+    font-weight: $font-weight-medium;
+    color:  $color-primary-gray;
+    padding: $spacing-sm 0;
+    transition: color $transition-fast;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-primary-dark;
+      transition: width $transition-normal;
+    }
+    
+    &:hover {
+      color: $text-primary;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+    
+    &--active {
+      color: $color-primary-dark;
+      font-weight: $font-weight-semibold;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+    
+    // Estilos para las líneas individuales
+    &-line1,
+    &-line2 {
+      display: block;
+    }
+    
+    &-line1 {
+      margin-bottom: 2px;
+    }
+  }
+  
+  // Mobile toggle button
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: $z-index-fixed;
+    margin-right: 1rem; // Ajustar posición del icono en mobile
+    
+    @include respond-to(md) {
+      display: none;
+    }
+    
+    &:focus-visible {
+      @include focus-outline;
+    }
+  }
+  
+  &__toggle-icon {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: $text-primary;
+    transition: all $transition-normal;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background-color: $text-primary;
+      transition: all $transition-normal;
+    }
+    
+    &::before {
+      top: -8px;
+    }
+    
+    &::after {
+      bottom: -8px;
+    }
+  }
+  
+  // Active state for hamburger
+  &__toggle[aria-expanded="true"] &__toggle-icon {
+    background-color: transparent;
+    
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Scrolled state
+.header--scrolled {
+  box-shadow: $shadow-md;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+// Active state (when scrolled or nav link clicked) - moves to top:0
+.header--active {
+  top: 0 !important;
+}
+
+// ========================================
+// PAGE BULLETS (Decorative - Top Left Corner)
+// ========================================
+.page-bullets {
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: $z-index-modal; // High z-index to appear above everything
+  
+  // Ocultar bullets en mobile para no tapar el logo
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: $border-radius-full;
+  background-color: white;
+  transition: background-color $transition-fast;
+}
+
