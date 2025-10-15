@@ -33,12 +33,12 @@
 
   // Sección 2: Navegación y Redes - MÁS ESTRECHA
   &__navigation {
-    flex: 0 0 200px; // Ancho fijo más pequeño para navegación
+    flex: 0 0 250px; // Aumentar ancho para acomodar el nuevo item
   }
 
   // Sección 3: Dirección - MÁS ESPACIO
   &__address {
-    flex: 1; // Permitir que la dirección crezca y ocupe el espacio restante
+    // flex: 1; // Permitir que la dirección crezca y ocupe el espacio restante
   }
 
   // Sección 4: Mapa - ANCHO FIJO
@@ -114,11 +114,11 @@
       
       &-link {
         font-family: $font-secondary;
-        font-size: 12px; // Tamaño fijo de 12px
+        font-size: 11px; // Reducir un poco para que quepa mejor
         color: $text-light;
         text-decoration: none;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px; // Reducir espaciado de letras
         transition: opacity $transition-fast;
         
         &:hover {
