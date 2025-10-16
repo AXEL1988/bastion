@@ -13,7 +13,17 @@
     display: flex;
     align-items: flex-start;
     gap: $spacing-xl;
-    //position: relative;
+    
+    @media (max-width: 1023px) {
+      gap: $spacing-lg; // Menos espacio en tablet
+    }
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: $spacing-2xl;
+    }
   }
   
   // Estilos base para todas las secciones del footer
@@ -29,16 +39,28 @@
     flex: 0 0 150px; // Aumentar ancho para acomodar el logo más grande
     align-items: center; // Centrar horizontalmente
     justify-content: center; // Centrar verticalmente
+    
+    @media (max-width: 1023px) {
+      flex: 0 0 120px; // Más pequeño en tablet
+    }
   }
 
   // Sección 2: Navegación y Redes - MÁS ESTRECHA
   &__navigation {
     flex: 0 0 250px; // Aumentar ancho para acomodar el nuevo item
+    
+    @media (max-width: 1023px) {
+      flex: 0 0 200px; // Más pequeño en tablet
+    }
   }
 
   // Sección 3: Dirección - MÁS ESPACIO
   &__address {
-    // flex: 1; // Permitir que la dirección crezca y ocupe el espacio restante
+    flex: 1; // Permitir que la dirección crezca y ocupe el espacio restante
+    
+    @media (max-width: 1023px) {
+      flex: 1; // Mantener flexible en tablet
+    }
   }
 
   // Sección 4: Mapa - ANCHO FIJO
@@ -46,6 +68,10 @@
     flex: 0 0 200px; // Ancho fijo para la sección del mapa
     align-items: center;
     justify-content: center;
+    
+    @media (max-width: 1023px) {
+      flex: 0 0 160px; // Más pequeño en tablet
+    }
   }
   
   // Separadores verticales

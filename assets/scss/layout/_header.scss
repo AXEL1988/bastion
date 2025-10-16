@@ -27,12 +27,11 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding-left: 1rem; // Logo a 1rem del borde izquierdo
-    padding-right: 1rem; // Icono a 1rem del borde derecho
+    padding: 0 1rem; // Padding uniforme
     
     @media (max-width: 767px) {
-      padding-left: 1rem;
-      padding-right: 0.5rem; // Menos padding en mobile para el icono
+      padding: 0 1rem;
+      justify-content: space-between;
     }
   }
   
@@ -51,13 +50,16 @@
   }
   
   &__logo-image {
-    display: none; // Ocultar en mobile por defecto
+    height: 45px; // Pequeño en mobile
+    width: auto;
+    object-fit: contain;
     
     @include respond-to(md) {
-      display: block; // Mostrar solo en desktop
-      height: 95px; // Aún más grande en desktop
-      width: auto; // Mantener proporción
-      object-fit: contain;
+      height: 70px; // Mediano en tablet
+    }
+    
+    @include respond-to(lg) {
+      height: 95px; // Grande en desktop
     }
   }
   
@@ -67,17 +69,17 @@
 .nav {
   @include respond-to-max(md) {
     position: fixed;
-    top: 0; // Pegado al header
+    top: $header-height-mobile; // Pegado justo debajo del header
     left: 0;
     width: 100%;
     background-color: $bg-light;
-    padding: $spacing-xl $container-padding-mobile;
-    padding-top: calc(#{$header-height} + #{$spacing-xl}); // Espacio para el header
+    padding: $spacing-lg $container-padding-mobile;
     box-shadow: $shadow-lg;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all $transition-normal;
+    z-index: $z-index-sticky;
     
     &.nav--active {
       transform: translateY(0);
@@ -178,14 +180,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     cursor: pointer;
     background: transparent;
     border: none;
     z-index: $z-index-fixed;
-    margin-right: 1rem; // Ajustar posición del icono en mobile
     
     @include respond-to(md) {
       display: none;

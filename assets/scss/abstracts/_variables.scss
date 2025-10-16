@@ -97,12 +97,13 @@ $grid-gap: $spacing-xl;
 $grid-gap-mobile: $spacing-lg;
 
 // ===== BREAKPOINTS =====
-$breakpoint-xs: 320px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
-$breakpoint-xxl: 1536px;
+// Breakpoints optimizados para todos los dispositivos
+$breakpoint-xs: 320px;   // iPhone SE y más pequeños
+$breakpoint-sm: 480px;   // iPhone 12/13/14 Pro Max
+$breakpoint-md: 768px;   // iPad (portrait)
+$breakpoint-lg: 1024px;  // iPad Pro (12.9") y laptops pequeños
+$breakpoint-xl: 1280px;  // Laptops y desktops pequeños
+$breakpoint-xxl: 1440px; // Desktops grandes
 
 // ===== TRANSITIONS =====
 $transition-fast: 0.2s ease-in-out;
