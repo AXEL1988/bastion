@@ -50,16 +50,16 @@
   }
   
   &__logo-image {
-    height: 45px; // Pequeño en mobile
+    height: 40px; // Pequeño en mobile
     width: auto;
     object-fit: contain;
     
     @include respond-to(md) {
-      height: 70px; // Mediano en tablet
+      height: 55px; // Mediano en tablet
     }
     
     @include respond-to(lg) {
-      height: 95px; // Grande en desktop
+      height: 70px; // Moderado en desktop
     }
   }
   
