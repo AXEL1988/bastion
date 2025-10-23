@@ -4,39 +4,39 @@
 // ===== CONTACT SECTION =====
 .contact {
   background-color: #888888; // Color actualizado según el PDF
-  padding: calc($spacing-unit * 4) 0;
+  padding: 0;
   color: $text-light;
-  padding-top: 5rem;
+  
   &__container {
     @include container;
-    margin-top: 5rem;
+    padding: 5rem 0 0 0; // Solo padding superior
   }
   
-  // Pre-título "Contáctanos"
+  // Pre-título "Contáctanos" - Ahora dentro de contact__info
   &__pretitle {
     display: block;
     font-size: clamp(1.75rem, 1.5vw, 1.75rem);
     color: $text-light;
-    margin-bottom: $spacing-xs; // Reducido de md a xs
+    margin-bottom: $spacing-xs;
     opacity: 0.9;
   }
   
-  // Título principal
+  // Título principal - Ahora dentro de contact__info
   &__title {
-    margin-bottom: $spacing-3xl;
-    line-height: 0.9; // Reducir espacio entre líneas
+    margin-bottom: $spacing-2xl; // Reducido para mejor espaciado en columna
+    line-height: 0.9;
     
     &-main {
       display: block;
       font-family: $font-primary;
-      font-size: clamp(2.5rem, 6vw, 5rem); // Igual que about__brand
+      font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: $font-weight-bold;
       color: $text-light;
-      line-height: 0.9; // Reducido de 1.1 a 0.9
-      margin-bottom: 0; // Eliminado el margen
+      line-height: 0.9;
+      margin-bottom: 0;
       
       @include respond-to(md) {
-        font-size: clamp(3rem, 6vw, 5rem); // Igual que about__brand en desktop
+        font-size: clamp(3rem, 6vw, 5rem);
       }
     }
     
@@ -45,49 +45,51 @@
       font-size: clamp(1.75rem, 3vw, 2.5rem);
       color: $text-light;
       opacity: 0.85;
-      margin-top: 0.1em; // Acercar al título principal
+      margin-top: 0.1em;
     }
   }
   
-  // Contenido principal
+  // Contenido principal - Layout de dos columnas
   &__content {
     margin-top: $spacing-2xl;
-    display: flex;
-    align-items: center;
-    gap: $spacing-3xl;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
     
     @include respond-to(md) {
-      gap: $spacing-4xl;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-sm; // Reducir gap entre columnas
+      align-items: start;
     }
   }
   
-  // Información de contacto
+  // Información de contacto - Columna izquierda
   &__info {
-    flex: 1;
-    max-width: 500px;
+    width: 100%;
+    
+    @include respond-to(md) {
+      padding-right: $spacing-3xl; // Aumentar padding derecho
+      padding-left: $spacing-lg; // Agregar padding izquierdo
+    }
   }
   
-  // Imagen del equipo
+  // Imagen del equipo - Columna derecha
   &__image {
-    flex: 0 0 auto;
     display: none; // Ocultar en mobile
     
     @include respond-to(md) {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: stretch; // Estirar para ocupar toda la altura
+      height: 100%;
     }
   }
   
   &__photo {
-    width: 300px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
-    @include respond-to(lg) {
-      width: 350px;
-      height: 450px;
-    }
+    object-position: center;
   }
   
   // Subtítulo "Agenda tu asesoría"
