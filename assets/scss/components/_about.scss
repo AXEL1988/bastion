@@ -37,14 +37,14 @@
   }
   
   &__brand {
-    display: block;
+    display: inline;
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: $font-weight-bold;
     color: $color-primary-dark; // Gris oscuro
-    margin-top: $spacing-sm;
+    margin-top: 0; // Sin margen superior ya que están en la misma línea
     @include respond-to(md) {
       font-size: clamp(3rem, 6vw, 5rem);
-      margin-left: 300px;
+      margin-left: 0; // Sin margen izquierdo ya que están en la misma línea
     }
   }
   
