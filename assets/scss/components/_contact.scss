@@ -3,9 +3,14 @@
 
 // ===== CONTACT SECTION =====
 .contact {
-  background-color: #888888; // Color actualizado según el PDF
+  background-image: url('../../assets/images/contactanos-bastione.webp');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #888888; // Color de respaldo
   padding: 0;
-  color: $text-light;
+  color: $color-primary-gray;
+  min-height: 85vh; // Asegurar altura mínima para que la imagen se vea completa
   
   &__container {
     @include container;
@@ -16,7 +21,7 @@
   &__pretitle {
     display: block;
     font-size: clamp(1.75rem, 1.5vw, 1.75rem);
-    color: $text-light;
+    color: $color-primary-gray;
     margin-bottom: $spacing-xs;
     opacity: 0.9;
   }
@@ -31,7 +36,7 @@
       font-family: $font-primary;
       font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: $font-weight-bold;
-      color: $text-light;
+      color: $color-primary-gray;
       line-height: 0.9;
       margin-bottom: 0;
       
@@ -43,7 +48,7 @@
     &-sub {
       display: block;
       font-size: clamp(1.75rem, 3vw, 2.5rem);
-      color: $text-light;
+      color: $color-primary-gray;
       opacity: 0.85;
       margin-top: 0.1em;
     }
@@ -109,7 +114,7 @@
     font-family: $font-secondary;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: $font-weight-medium;
-    color: $text-light;
+    color: $color-primary-gray;
     margin-bottom: $spacing-2xl;
   }
   
@@ -129,14 +134,14 @@
     font-family: $font-secondary;
     font-size: clamp(1rem, 1.5vw, 1.25rem);
     font-weight: $font-weight-bold;
-    color: $text-light;
+    color: $color-primary-gray;
     white-space: nowrap;
   }
   
   &__item-link {
     font-family: $font-secondary;
     font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: $text-light;
+    color: $color-primary-gray;
     opacity: 0.9;
     text-decoration: none;
     transition: opacity $transition-fast;
