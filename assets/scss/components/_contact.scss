@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   background-color: #888888; // Color de respaldo
   padding: 0;
-  color: $color-primary-gray;
+  color: $color-primary-dark;
   min-height: 85vh; // Asegurar altura mínima para que la imagen se vea completa
   
   &__container {
@@ -21,7 +21,7 @@
   &__pretitle {
     display: block;
     font-size: clamp(1.75rem, 1.5vw, 1.75rem);
-    color: $color-primary-gray;
+    color: $color-primary-dark;
     margin-bottom: $spacing-xs;
     opacity: 0.9;
   }
@@ -36,7 +36,7 @@
       font-family: $font-primary;
       font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: $font-weight-bold;
-      color: $color-primary-gray;
+      color: $color-primary-dark;
       line-height: 0.9;
       margin-bottom: 0;
       
@@ -48,7 +48,7 @@
     &-sub {
       display: block;
       font-size: clamp(1.75rem, 3vw, 2.5rem);
-      color: $color-primary-gray;
+      color: $color-primary-dark;
       opacity: 0.85;
       margin-top: 0.1em;
     }
@@ -114,7 +114,7 @@
     font-family: $font-secondary;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: $font-weight-medium;
-    color: $color-primary-gray;
+    color: $color-primary-dark;
     margin-bottom: $spacing-2xl;
   }
   
@@ -134,14 +134,14 @@
     font-family: $font-secondary;
     font-size: clamp(1rem, 1.5vw, 1.25rem);
     font-weight: $font-weight-bold;
-    color: $color-primary-gray;
+    color: $color-primary-dark;
     white-space: nowrap;
   }
   
   &__item-link {
     font-family: $font-secondary;
     font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: $color-primary-gray;
+    color: $color-primary-dark;
     opacity: 0.9;
     text-decoration: none;
     transition: opacity $transition-fast;
